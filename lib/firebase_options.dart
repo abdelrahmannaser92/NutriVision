@@ -44,38 +44,38 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCygTS_8iK2BvQ46tY-20oumL7HZ4SDkbM',
-    appId: '1:473079928294:web:06aa5b3c300d8e2de0f227',
-    messagingSenderId: '473079928294',
-    projectId: 'sofrah',
-    authDomain: 'sofrah.firebaseapp.com',
-    storageBucket: 'sofrah.firebasestorage.app',
-    measurementId: 'G-RMWQX1FHJW',
+    apiKey: 'AIzaSyCQvqgDpATvJf7rrOPfI09Ct7hz7zycdPU',
+    appId: '1:745497674452:web:482e8d27b2458242453141',
+    messagingSenderId: '745497674452',
+    projectId: 'nutrivision-bc6e6',
+    authDomain: 'nutrivision-bc6e6.firebaseapp.com',
+    storageBucket: 'nutrivision-bc6e6.firebasestorage.app',
+    measurementId: 'G-1JYRQN9SMK',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBSFwRAMzij5JFxiAPvDmgypritpPuIvuA',
-    appId: '1:473079928294:android:d86243efe3cc0ba4e0f227',
-    messagingSenderId: '473079928294',
-    projectId: 'sofrah',
-    storageBucket: 'sofrah.firebasestorage.app',
+    apiKey: 'AIzaSyB6937mlSWvjLKUMj8Rg4aZQA4Gi6Di5GY',
+    appId: '1:745497674452:android:82b86b7b7a561cd1453141',
+    messagingSenderId: '745497674452',
+    projectId: 'nutrivision-bc6e6',
+    storageBucket: 'nutrivision-bc6e6.firebasestorage.app',
   );
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAxY15uwM5-QRkDY1Hw_gSeOvryKkGtPFQ',
-    appId: '1:473079928294:ios:5008af66450bf9cee0f227',
-    messagingSenderId: '473079928294',
-    projectId: 'sofrah',
-    storageBucket: 'sofrah.firebasestorage.app',
+    apiKey: 'AIzaSyALinVctpNk8Rr-RT5KEsvgWIvLQ-XV1xo',
+    appId: '1:745497674452:ios:dd49ceac6efed814453141',
+    messagingSenderId: '745497674452',
+    projectId: 'nutrivision-bc6e6',
+    storageBucket: 'nutrivision-bc6e6.firebasestorage.app',
     iosBundleId: 'com.example.sofrahProject',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyCygTS_8iK2BvQ46tY-20oumL7HZ4SDkbM',
-    appId: '1:473079928294:web:f8f9755f18a06b78e0f227',
-    messagingSenderId: '473079928294',
-    projectId: 'sofrah',
-    authDomain: 'sofrah.firebaseapp.com',
-    storageBucket: 'sofrah.firebasestorage.app',
-    measurementId: 'G-Y0XH70LVKD',
+    apiKey: 'AIzaSyCQvqgDpATvJf7rrOPfI09Ct7hz7zycdPU',
+    appId: '1:745497674452:web:c1c5e4ea0b18ee43453141',
+    messagingSenderId: '745497674452',
+    projectId: 'nutrivision-bc6e6',
+    authDomain: 'nutrivision-bc6e6.firebaseapp.com',
+    storageBucket: 'nutrivision-bc6e6.firebasestorage.app',
+    measurementId: 'G-3HDFEZ48Q7',
   );
 }
