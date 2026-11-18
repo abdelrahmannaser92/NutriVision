@@ -1,17 +1,20 @@
 
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:convert';
+
+import 'package:flutter/services.dart';
 
 class FoodService {
-  final FirebaseFirestore _db = FirebaseFirestore.instance;
+  Stream<List<Map<String, dynamic>>> getFoods() async* {
+    final jsonString = await rootBundle.loadString(
+      'assets/data/foods.json',
+    );
 
-  Stream<List<Map<String, dynamic>>> getFoods() {
-    return _db.collection('foods').snapshots().map((snapshot) {
-      return snapshot.docs.map((doc) {
-        return {
-          'id': doc.id,
-          ...doc.data(),
-        };
-      }).toList();
-    });
+    final List<dynamic> decodedFoods = jsonDecode(jsonString);
+
+    final foods = decodedFoods.map((food) {
+      return Map<String, dynamic>.from(food);
+    }).toList();
+
+    yield foods;
   }
 }

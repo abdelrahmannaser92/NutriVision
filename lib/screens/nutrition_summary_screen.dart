@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:sofrah_project/screens/home_screen.dart';
 
 import '../core/app_theme.dart';
 import '../services/meal_service.dart';
@@ -8,12 +8,9 @@ import '../widgets/glass_widgets.dart';
 class NutritionSummaryScreen extends StatelessWidget {
   final String selectedGoal;
 
-    NutritionSummaryScreen({
-    super.key,
-    this.selectedGoal = 'maintain',
-  });
+  NutritionSummaryScreen({super.key, this.selectedGoal = 'maintain'});
 
-  final MealService mealService =  MealService();
+  final MealService mealService = MealService();
 
   String get goalTitle {
     switch (selectedGoal) {
@@ -96,21 +93,12 @@ class NutritionSummaryScreen extends StatelessWidget {
   }) {
     return Expanded(
       child: GlassCard(
-        padding: const EdgeInsets.symmetric(
-          vertical: 18,
-          horizontal: 8,
-        ),
+        padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 8),
         child: Column(
           children: [
             Icon(icon, color: color, size: 27),
             const SizedBox(height: 12),
-            Text(
-              title,
-              style: AppText.body(
-                14,
-                color: AppColors.textSoft,
-              ),
-            ),
+            Text(title, style: AppText.body(14, color: AppColors.textSoft)),
             const SizedBox(height: 12),
             SizedBox(
               width: 65,
@@ -129,10 +117,7 @@ class NutritionSummaryScreen extends StatelessWidget {
                   FittedBox(
                     child: Text(
                       amount,
-                      style: AppText.body(
-                        15,
-                        weight: FontWeight.bold,
-                      ),
+                      style: AppText.body(15, weight: FontWeight.bold),
                     ),
                   ),
                 ],
@@ -142,10 +127,7 @@ class NutritionSummaryScreen extends StatelessWidget {
             Text(
               unit,
               textAlign: TextAlign.center,
-              style: AppText.body(
-                11,
-                color: AppColors.textSoft,
-              ),
+              style: AppText.body(11, color: AppColors.textSoft),
             ),
           ],
         ),
@@ -167,22 +149,20 @@ class NutritionSummaryScreen extends StatelessWidget {
           for (final meal in snapshot.data!.docs) {
             final data = meal.data();
 
-            totalCalories +=
-                (data['calories'] as num?)?.toDouble() ?? 0;
+            totalCalories += (data['calories'] as num?)?.toDouble() ?? 0;
 
-            totalProtein +=
-                (data['protein'] as num?)?.toDouble() ?? 0;
+            totalProtein += (data['protein'] as num?)?.toDouble() ?? 0;
 
-            totalCarbs +=
-                (data['carbs'] as num?)?.toDouble() ?? 0;
+            totalCarbs += (data['carbs'] as num?)?.toDouble() ?? 0;
 
-            totalFat +=
-                (data['fat'] as num?)?.toDouble() ?? 0;
+            totalFat += (data['fat'] as num?)?.toDouble() ?? 0;
           }
         }
 
-        final calorieProgress =
-            _progress(totalCalories, dailyCalories.toDouble());
+        final calorieProgress = _progress(
+          totalCalories,
+          dailyCalories.toDouble(),
+        );
 
         return Scaffold(
           body: Container(
@@ -217,29 +197,20 @@ class NutritionSummaryScreen extends StatelessWidget {
                         ),
                         Text(
                           '07 / 09',
-                          style: AppText.body(
-                            14,
-                            color: AppColors.textSoft,
-                          ),
+                          style: AppText.body(14, color: AppColors.textSoft),
                         ),
                       ],
                     ),
 
                     const SizedBox(height: 25),
 
-                    Text(
-                      'خطة التغذية بتاعتك',
-                      style: AppText.title(28),
-                    ),
+                    Text('خطة التغذية بتاعتك', style: AppText.title(28)),
 
                     const SizedBox(height: 10),
 
                     Text(
                       goalDescription,
-                      style: AppText.body(
-                        15,
-                        color: AppColors.textSoft,
-                      ),
+                      style: AppText.body(15, color: AppColors.textSoft),
                     ),
 
                     const SizedBox(height: 28),
@@ -250,9 +221,7 @@ class NutritionSummaryScreen extends StatelessWidget {
                         style: TextStyle(color: Colors.redAccent),
                       )
                     else if (!snapshot.hasData)
-                      const Center(
-                        child: CircularProgressIndicator(),
-                      )
+                      const Center(child: CircularProgressIndicator())
                     else ...[
                       GlassCard(
                         padding: const EdgeInsets.all(24),
@@ -274,10 +243,7 @@ class NutritionSummaryScreen extends StatelessWidget {
                             const SizedBox(height: 8),
                             Text(
                               totalCalories.toStringAsFixed(0),
-                              style: AppText.title(
-                                42,
-                                color: AppColors.orange,
-                              ),
+                              style: AppText.title(42, color: AppColors.orange),
                             ),
                             Text(
                               'من $dailyCalories سعرة حرارية',
@@ -293,8 +259,7 @@ class NutritionSummaryScreen extends StatelessWidget {
                                 value: calorieProgress,
                                 minHeight: 10,
                                 backgroundColor: Colors.white12,
-                                valueColor:
-                                    const AlwaysStoppedAnimation<Color>(
+                                valueColor: const AlwaysStoppedAnimation<Color>(
                                   AppColors.orange,
                                 ),
                               ),
@@ -315,10 +280,7 @@ class NutritionSummaryScreen extends StatelessWidget {
 
                       const SizedBox(height: 28),
 
-                      Text(
-                        'توزيع العناصر الغذائية',
-                        style: AppText.title(21),
-                      ),
+                      Text('توزيع العناصر الغذائية', style: AppText.title(21)),
 
                       const SizedBox(height: 16),
 
@@ -340,10 +302,7 @@ class NutritionSummaryScreen extends StatelessWidget {
                             title: 'كربوهيدرات',
                             amount: totalCarbs.toStringAsFixed(0),
                             unit: 'من $carbs جرام',
-                            progress: _progress(
-                              totalCarbs,
-                              carbs.toDouble(),
-                            ),
+                            progress: _progress(totalCarbs, carbs.toDouble()),
                             color: AppColors.orange,
                             icon: Icons.grain,
                           ),
@@ -352,10 +311,7 @@ class NutritionSummaryScreen extends StatelessWidget {
                             title: 'دهون',
                             amount: totalFat.toStringAsFixed(0),
                             unit: 'من $fat جرام',
-                            progress: _progress(
-                              totalFat,
-                              fat.toDouble(),
-                            ),
+                            progress: _progress(totalFat, fat.toDouble()),
                             color: const Color(0xFFB388FF),
                             icon: Icons.water_drop,
                           ),
@@ -413,9 +369,10 @@ class NutritionSummaryScreen extends StatelessWidget {
                     GradientButton(
                       text: 'التالي',
                       onPressed: () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('شاشة رقم 8 قريباً'),
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const HomeScreen(),
                           ),
                         );
                       },
